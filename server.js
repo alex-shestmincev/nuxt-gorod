@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const app = require('express')()
 
-const categoriesData = require('./assets/data/categories.json')
+const categoriesData = require('./data/categories.json')
 
 // Body parser, to access req.body
 app.use(bodyParser.json())

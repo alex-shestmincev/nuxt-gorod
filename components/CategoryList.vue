@@ -29,7 +29,6 @@ export default {
         let i = 0;
         rows[i] = [];
         this.parentCategories.forEach((parent) => {
-          console.log('i',i, rows[i].length, this.rowsCount)
           if (rows[i] && rows[i].length >= this.rowsCount) {
             i++;
             rows[i] = []
