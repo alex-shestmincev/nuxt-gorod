@@ -1,10 +1,7 @@
 <template>
   <section class="container">
     <h1 class="text-center">Доска бесплатных объявлений в Украине</h1>
-    <h2 class="text-center">Категории объявлений Украина</h2>
-
-    <category-list :categories="categories">123</category-list>
-
+    <category-list :parentCategories="parentCategories"></category-list>
   </section>
 </template>
 
@@ -19,12 +16,11 @@ export default {
   components: {
     CategoryList,
   },
-
   fetch ({ store }) {
     return store.dispatch('category/list')
   },
   computed: {
-    categories() { return this.$store.state.category.list },
+    parentCategories() { return this.$store.getters['category/parentCategories'] },
   },
   methods () {
 

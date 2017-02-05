@@ -1,7 +1,7 @@
 <template>
   <div id="homeCat">
 
-    <h2 align="text-center">Категории объявлений</h2>
+    <h2 class="text-center">Категории объявлений</h2>
 
     <div class="row" v-for="row in rows">
       <div class="col-md-4 col-sm-4 parentItem" v-for="(parent,index) in row" :key="parent.id">
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  props: ['categories'],
+  props: ['parentCategories'],
   data() {
     return {
         rowsCount: 3
@@ -37,19 +37,7 @@ export default {
           rows[i].push(parent);
         })
       return rows
-    },
-    parentCategories() {
-      let parents = this.categories
-        .filter(cat => cat.parent_id === 0)
-      parents = parents.map(parent => {
-        parent.childs = this.categories
-          .filter(cat => cat.parent_id === parent.id);
-        return parent;
-      })
-
-      return parents;
-    },
-
+    }
   },
 }
 </script>
