@@ -3,12 +3,16 @@
     <nav class="navbar navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">Объявление.net</a>
+          <router-link class="navbar-brand" to="/">Объявление.net</router-link>
         </div>
         <div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/my" class="navbar-link navbar-right">My</a></li>
-            <li><a href="/add" class="navbar-link navbar-right">Add New</a></li>
+            <li>
+              <router-link class="navbar-link navbar-right" to="/my">My</router-link>
+            </li>
+            <li>
+              <router-link class="navbar-link navbar-right" to="/add">Add New</router-link>
+            </li>
           </ul>
         </div>
       </div>
