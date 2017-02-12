@@ -16,9 +16,7 @@ export default {
   components: {
     CategoryList,
   },
-  fetch ({ store }) {
-    return store.dispatch('category/list')
-  },
+  middleware: ['getAllCategories'],
   computed: {
     parentCategories() { return this.$store.getters['category/parentCategories'] },
   },

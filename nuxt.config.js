@@ -3,9 +3,12 @@ module.exports = {
     vendor: [
       // 'bootstrap',
       // 'jquery'
-       'axios'
+      'axios',
     ]
   },
+  // plugins: [
+  //   '~plugins/vee-validate.js'
+  // ],
   /*
   ** Headers of the page
   */

@@ -35,6 +35,12 @@ app.get('/api/category', (req, res) => {
   res.json(categoriesData);
 })
 
+app.post('/api/ad', (req, res) => {
+  const data = req.body;
+  data.id = Math.ceil(100 * Math.random());
+  res.json(data);
+})
+
 // We instantiate Nuxt.js with the options
 const isProd = process.env.NODE_ENV === 'production'
 let config = require('./nuxt.config.js')
