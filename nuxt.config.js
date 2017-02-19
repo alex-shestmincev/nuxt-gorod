@@ -1,3 +1,5 @@
+const resolve = require('path').resolve
+
 module.exports = {
   build: {
     vendor: [
@@ -5,6 +7,16 @@ module.exports = {
       // 'jquery'
       'axios',
     ]
+  },
+  router:{
+    linkActiveClass: 'active-link',
+    extendRoutes (routes) {
+      routes.push({
+        name: 'search',
+        path: '/:city?/:category?',
+        component: resolve(__dirname, 'pages/index')
+      })
+    }
   },
   // plugins: [
   //   '~plugins/vee-validate.js'

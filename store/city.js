@@ -1,15 +1,14 @@
 const axios = require('axios');
 
-export const NEW_AD = 'NEW_AD'
+export const CITY_SET_LIST = 'CITIES_SET_LIST'
 
 export const state = {
-  list: [],
-  ad: null,
+  list: []
 }
 
 export const mutations = {
-  [NEW_AD]: (state, data) => {
-    state.ad = data
+  [CITY_SET_LIST]: (state, list) => {
+    state.list = list
   },
 }
 
@@ -21,10 +20,11 @@ export const actions = {
     console.log('nuxtServerInit')
   },
 
-  search (ctx, params) {
-    return axios.get('http://localhost:5005/api/ad', { params })
-      .then((res) => {
-        ctx.commit(NEW_AD, res.data)
+  list ({ commit }) {
+    return axios.get('http://localhost:5005/api/city')
+      .then(({data}) => {
+      console.log('data', data)
+        commit(CITY_SET_LIST, data)
       })
   },
 };

@@ -4,6 +4,7 @@ const session = require('express-session')
 const app = require('express')()
 
 const categoriesData = require('./data/categories.json')
+const citiesData = require('./data/cities.json')
 
 // Body parser, to access req.body
 app.use(bodyParser.json())
@@ -33,6 +34,10 @@ app.post('/api/logout', function (req, res) {
 
 app.get('/api/category', (req, res) => {
   res.json(categoriesData);
+})
+
+app.get('/api/city', (req, res) => {
+  res.json(citiesData);
 })
 
 app.post('/api/ad', (req, res) => {

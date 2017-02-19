@@ -1,5 +1,8 @@
 <template>
-  <footer>
-    <p>&copy; 2016 Company, Inc.</p>
-  </footer>
+  <div class="container">
+    <hr />
+    <footer>
+      <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+  </div>
 </template>

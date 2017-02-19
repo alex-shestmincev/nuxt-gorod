@@ -1,27 +1,13 @@
 const axios = require('axios');
 
-export const SET_LIST = 'CATEGORIES_SET_LIST'
+export const CATEGORY_SET_LIST = 'CATEGORIES_SET_LIST'
 
 export const state = {
   list: []
 }
 
-export const getters = {
-  parentCategories: state => {
-    let parents = state.list
-      .filter(cat => cat.parent_id === 0)
-    parents = parents.map(parent => {
-      parent.childs = state.list
-        .filter(cat => cat.parent_id === parent.id);
-      return parent;
-    })
-
-    return parents;
-  }
-}
-
 export const mutations = {
-  [SET_LIST]: (state, list) => {
+  [CATEGORY_SET_LIST]: (state, list) => {
     state.list = list
   },
 }
@@ -36,8 +22,8 @@ export const actions = {
 
   list ({ commit }) {
     return axios.get('http://localhost:5005/api/category')
-      .then((res) => {
-        commit(SET_LIST, res.data)
+      .then(({data}) => {
+        commit(CATEGORY_SET_LIST, data)
       })
   },
 };

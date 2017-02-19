@@ -1,7 +1,9 @@
 <template>
-  <section class="container">
-    <h1 class="text-center">Доска бесплатных объявлений в Украине</h1>
-    <category-list :parentCategories="parentCategories"></category-list>
+  <section>
+    <search-form/>
+    <div class="container">
+      <list-title></list-title>
+    </div>
   </section>
 </template>
 
@@ -9,16 +11,22 @@
 
 </style>
 
+
+
 <script>
-import CategoryList from '~components/CategoryList.vue'
+import ListTitle from '~components/ListTitle.vue'
+import SearchForm from '~components/SearchForm.vue'
 
 export default {
+  middleware: ['getAllCategories', 'getAllCities'],
   components: {
-    CategoryList,
+    ListTitle,
+    SearchForm,
   },
-  middleware: ['getAllCategories'],
+
   computed: {
-    parentCategories() { return this.$store.getters['category/parentCategories'] },
+    categories() { return this.$store.state.category.list },
+    cities() { return this.$store.state.city.list },
   },
   methods () {
 
